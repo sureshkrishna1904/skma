@@ -2,23 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Names Page</title>
+  <title>Suresh Babu Animisetty - Portfolio</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      padding: 30px;
+      background-color: #f9f9f9;
     }
     h1 {
       color: #2c3e50;
     }
+    .section {
+      margin-top: 30px;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, .info-box {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .info-box {
+      padding: 10px;
+      background-color: #fff;
+      border-left: 4px solid #3498db;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
   </style>
 </head>
 <body>
-  <h1>Names List</h1>
-  <p>Maharshi</p>
-  <p>Adharv</p>
-  <p>Krishnaveni</p>
-  <p>Suresh</p>
+
+  <h1>Name: Suresh Babu Animisetty</h1>
+
+  <!-- Education Section -->
+  <div class="section">
+    <label for="education">Education:</label>
+    <select id="education" onchange="showEducationInfo()">
+      <option value="">-- Select --</option>
+      <option value="10th">10th / SSC</option>
+      <option value="12th">12th / Intermediate</option>
+      <option value="grad">Graduation</option>
+    </select>
+    <div id="educationInfo" class="info-box"></div>
+  </div>
+
+  <!-- Work Experience Section -->
+  <div class="section">
+    <label for="work">Work Experience:</label>
+    <select id="work" onchange="showWorkInfo()">
+      <option value="">-- Select --</option>
+      <option value="intern">Internship</option>
+      <option value="fulltime">Full-time Job</option>
+    </select>
+    <div id="workInfo" class="info-box"></div>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="section">
+    <label for="project">Projects:</label>
+    <select id="project" onchange="showProjectInfo()">
+      <option value="">-- Select --</option>
+      <option value="web">Web App</option>
+      <option value="ml">ML Project</option>
+    </select>
+    <div id="projectInfo" class="info-box"></div>
+  </div>
+
+  <script>
+    function showEducationInfo() {
+      const value = document.getElementById("education").value;
+      const box = document.getElementById("educationInfo");
+      if (value === "10th") {
+        box.innerHTML = "<strong>10th / SSC:</strong><br>School: ZP High School<br>Address: Anantapur, Andhra Pradesh<br>Year: 2012";
+      } else if (value === "12th") {
+        box.innerHTML = "<strong>12th / Intermediate:</strong><br>College: Sri Chaitanya Junior College<br>Address: Hyderabad, Telangana<br>Year: 2014";
+      } else if (value === "grad") {
+        box.innerHTML = "<strong>Graduation:</strong><br>College: JNTU Hyderabad<br>Address: Hyderabad, Telangana<br>Year of Passing: 2018";
+      } else {
+        box.innerHTML = "";
+      }
+    }
+
+    function showWorkInfo() {
+      const value = document.getElementById("work").value;
+      const box = document.getElementById("workInfo");
+      if (value === "intern") {
+        box.innerHTML = "<strong>Internship:</strong><br>Company: TCS<br>Duration: 6 Months<br>Role: Java Developer Intern";
+      } else if (value === "fulltime") {
+        box.innerHTML = "<strong>Full-time:</strong><br>Company: Infosys<br>Duration: 4 Years<br>Role: Backend Developer";
+      } else {
+        box.innerHTML = "";
+      }
+    }
+
+    function showProjectInfo() {
+      const value = document.getElementById("project").value;
+      const box = document.getElementById("projectInfo");
+      if (value === "web") {
+        box.innerHTML = "<strong>Web App:</strong><br>Project: Employee Management System<br>Tech Stack: React, Node.js, MongoDB<br>Description: CRUD operations for employees.";
+      } else if (value === "ml") {
+        box.innerHTML = "<strong>ML Project:</strong><br>Project: Predict Student Performance<br>Tech Stack: Python, scikit-learn<br>Description: Used ML algorithms to predict grades.";
+      } else {
+        box.innerHTML = "";
+      }
+    }
+  </script>
+
 </body>
 </html>
